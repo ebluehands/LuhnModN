@@ -15,12 +15,12 @@ Features :
 By default the mod is 10 because it's the most used.
 
 ```swift
-let visa = try? LuhnModN.addCheckCharacter("401288888888188")
+let visa = try? LuhnModN.addCheckCharacter(to: "401288888888188")
 ```
 To use another modulo, simply add it as parameter :
 
 ```swift
-let hexaString = try? LuhnModN.addCheckCharacter("1450c2697d3a4925a1ec59f5dd3a9956", modulo : 16)
+let hexaString = try? LuhnModN.addCheckCharacter(to: "1450c2697d3a4925a1ec59f5dd3a9956", withModulo : 16)
 ```
 
 ####Errors
@@ -45,7 +45,7 @@ LuhnModN.isValid("4012888888881881")
 To use another modulo, simply add it as parameter :
 
 ```swift
-LuhnModN.isValid("1450c2697d3a4925a1ec59f5dd3a9956b", modulo : 16)
+LuhnModN.isValid("1450c2697d3a4925a1ec59f5dd3a9956b", withModulo : 16)
 ```
 
 ## License
