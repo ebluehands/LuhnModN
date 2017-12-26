@@ -32,7 +32,7 @@ SOFTWARE.
 
 import Darwin
 
-enum LuhnError : Error {
+enum LuhnError: Error {
     case InvalidCharacters
     case ModuloOutOfRange
 }
@@ -50,7 +50,7 @@ public class LuhnModN {
     
     - Returns: true if the string is valid, false otherwise
     */
-    public static func isValid(_ sequence : String, withModulo mod : Int = 10) -> Bool {
+    public static func isValid(_ sequence: String, withModulo mod: Int = 10) -> Bool {
         guard validate(modulo: mod) && !containsInvalidCharacters(sequence, withModulo: Int32(mod)) else { return false }
         
         let sum = calculateLuhnSum(for: sequence, withModulo: mod, shouldDouble: { ($0 % 2 != 0) })
@@ -69,7 +69,7 @@ public class LuhnModN {
      
      - Returns: The string with the check character
      */
-    public static func addCheckCharacter(to sequence : String, withModulo mod : Int = 10) throws -> String {
+    public static func addCheckCharacter(to sequence: String, withModulo mod: Int = 10) throws -> String {
         guard validate(modulo: mod) else { throw LuhnError.ModuloOutOfRange }
         guard !containsInvalidCharacters(sequence, withModulo: Int32(mod)) else { throw LuhnError.InvalidCharacters }
         
@@ -87,8 +87,8 @@ public class LuhnModN {
     
     - Returns: The Luhn sum
     */
-    private static func calculateLuhnSum(for sequence : String, withModulo mod : Int, shouldDouble : (_ index : Int) -> Bool) -> Int {
-        return [Character](sequence.characters)
+    private static func calculateLuhnSum(for sequence: String, withModulo mod: Int, shouldDouble: (_ index : Int) -> Bool) -> Int {
+        return sequence
             .reversed()
             .map { codePoint(fromCharacter: $0, withModulo: Int32(mod)) }
             .enumerated()
@@ -104,7 +104,7 @@ public class LuhnModN {
      
      - Returns: The check character
      */
-    private static func generateCheckCharacter(for sequence : String, withModulo mod : Int) -> String {
+    private static func generateCheckCharacter(for sequence: String, withModulo mod: Int) -> String {
         let sum = calculateLuhnSum(for: sequence, withModulo : mod, shouldDouble: { ($0 % 2 == 0) })
         let remainder = sum % mod
         let checkCodePoint = (mod - remainder) % mod
@@ -119,8 +119,8 @@ public class LuhnModN {
      
      - Returns: true if one or more invalid characters were found, true otherwise
      */
-    private static func containsInvalidCharacters(_ sequence : String, withModulo mod : Int32) -> Bool {
-        return [Character](sequence.characters)
+    private static func containsInvalidCharacters(_ sequence: String, withModulo mod: Int32) -> Bool {
+        return sequence
             .reduce(false) { $0 || (strtoul(String($1), nil, mod) == 0 && $1 != "0") }
     }
     
@@ -131,7 +131,7 @@ public class LuhnModN {
      
      - Returns: true if the mod is valid, false otherwise
      */
-    private static func validate(modulo mod : Int) -> Bool {
+    private static func validate(modulo mod: Int) -> Bool {
         return mod > 1 && mod < 37
     }
     
@@ -144,7 +144,7 @@ public class LuhnModN {
      
      - Returns: The int value of the character
      */
-    private static func codePoint(fromCharacter character : Character, withModulo mod : Int32) -> Int {
+    private static func codePoint(fromCharacter character: Character, withModulo mod: Int32) -> Int {
         return Int(strtoul(String(character), nil, mod))
     }
     
@@ -156,7 +156,7 @@ public class LuhnModN {
      
      - Returns: The string value of the integer
      */
-    private static func character(fromCodePoint codePoint : Int, withModulo mod : Int) -> String {
+    private static func character(fromCodePoint codePoint: Int, withModulo mod: Int) -> String {
         return String(codePoint, radix: mod)
     }
     
@@ -168,7 +168,7 @@ public class LuhnModN {
      
      - Returns : The sum of its digit
      */
-    private static func sum(digits addend : Int, withModulo mod : Int) -> Int {
+    private static func sum(digits addend: Int, withModulo mod: Int) -> Int {
         return (addend / mod) + (addend % mod)
     }
     

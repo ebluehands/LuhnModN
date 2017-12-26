@@ -20,10 +20,10 @@ let visa = try? LuhnModN.addCheckCharacter(to: "401288888888188")
 To use another modulo, simply add it as parameter :
 
 ```swift
-let hexaString = try? LuhnModN.addCheckCharacter(to: "1450c2697d3a4925a1ec59f5dd3a9956", withModulo : 16)
+let hexaString = try? LuhnModN.addCheckCharacter(to: "1450c2697d3a4925a1ec59f5dd3a9956", withModulo: 16)
 ```
 
-####Errors
+### Errors
 
 There are two possible errors :
 
