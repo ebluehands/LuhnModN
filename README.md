@@ -8,6 +8,19 @@ Features :
 * Check the validity of a string
 * Works in mod 2 to 36
 
+## Installation
+
+### Cocoapods
+[CocoaPods](https://github.com/CocoaPods/CocoaPods) is a dependency manager for Cocoa projects. You can install it with the following command:
+
+`$ gem install cocoapods`
+
+To integrate LuhnModN into your Xcode project using CocoaPods, add this line in your Podfile:
+
+```
+pod 'LuhnModN'
+```
+
 ## Usage
 
 ### Add the check digit
