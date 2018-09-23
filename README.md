@@ -1,4 +1,7 @@
 # LuhnModN
+[![CocoaPods Compatible](https://img.shields.io/cocoapods/v/LuhnModN.svg?style=flat)](https://cocoapods.org/pods/LuhnModN)
+[![Build Status](https://travis-ci.org/ebluehands/LuhnModN.svg?branch=master)](https://travis-ci.org/ebluehands/LuhnModN)
+[![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://github.com/ebluehands/LuhnModN/blob/master/LICENSE)
 
 This is an implementation of the [Luhn mod N algorithm](https://en.wikipedia.org/wiki/Luhn_mod_N_algorithm) in Swift.
 
