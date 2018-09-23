@@ -41,9 +41,9 @@ let hexaString = try? LuhnModN.addCheckCharacter(to: "1450c2697d3a4925a1ec59f5dd
 There are two possible errors :
 
 ```swift
-enum LuhnError : ErrorType {
-    case InvalidCharacters
-    case ModuloOutOfRange
+enum LuhnError: Error {
+    case invalidCharacters
+    case moduloOutOfRange
 }
 ```
 

@@ -40,7 +40,7 @@ class LuhnModNTests: XCTestCase {
             _ = try LuhnModN.addCheckCharacter(to: "&123456789", withModulo: 10)
         }
         catch let error as LuhnError {
-            XCTAssertEqual(error, LuhnError.InvalidCharacters)
+            XCTAssertEqual(error, LuhnError.invalidCharacters)
         }
         catch {
             XCTFail("Unkown error")
@@ -50,7 +50,7 @@ class LuhnModNTests: XCTestCase {
             _ = try LuhnModN.addCheckCharacter(to: toAdd, withModulo: 40)
         }
         catch let error as LuhnError {
-            XCTAssertEqual(error, LuhnError.ModuloOutOfRange)
+            XCTAssertEqual(error, LuhnError.moduloOutOfRange)
         }
         catch {
             XCTFail("Unkown error")

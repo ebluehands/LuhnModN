@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'LuhnModN'
-  s.version          = '1.1.1'
+  s.version          = '1.1.2'
   s.summary          = 'This is an implementation of the Luhn mod N algorithm in Swift.'
   s.description      = <<-DESC
 This is an implementation of the Luhn mod N algorithm in Swift.
@@ -19,6 +19,6 @@ Features :
   s.social_media_url = 'https://twitter.com/ebluehands'
 
   s.ios.deployment_target = '9.2'
-
+  s.swift_version = '4.2'
   s.source_files = 'LuhnModN/*.swift'
 end

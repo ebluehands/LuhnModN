@@ -33,8 +33,8 @@ SOFTWARE.
 import Darwin
 
 enum LuhnError: Error {
-    case InvalidCharacters
-    case ModuloOutOfRange
+    case invalidCharacters
+    case moduloOutOfRange
 }
 
 /// This is an implementation of the [Luhn mod N algorithm](https://en.wikipedia.org/wiki/Luhn_mod_N_algorithm)
@@ -70,8 +70,8 @@ public class LuhnModN {
      - Returns: The string with the check character
      */
     public static func addCheckCharacter(to sequence: String, withModulo mod: Int = 10) throws -> String {
-        guard validate(modulo: mod) else { throw LuhnError.ModuloOutOfRange }
-        guard !containsInvalidCharacters(sequence, withModulo: Int32(mod)) else { throw LuhnError.InvalidCharacters }
+        guard validate(modulo: mod) else { throw LuhnError.moduloOutOfRange }
+        guard !containsInvalidCharacters(sequence, withModulo: Int32(mod)) else { throw LuhnError.invalidCharacters }
         
         return sequence + generateCheckCharacter(for: sequence, withModulo : mod)
     }
